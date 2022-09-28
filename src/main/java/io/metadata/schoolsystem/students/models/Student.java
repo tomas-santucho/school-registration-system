@@ -1,10 +1,12 @@
 package io.metadata.schoolsystem.students.models;
 
+import io.metadata.schoolsystem.courses.models.Course;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "students")
@@ -20,6 +22,13 @@ public class Student {
     String name;
     String surname;
     String bornDate;
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "student_courses",
+            joinColumns = { @JoinColumn(name = "student_id") },
+            inverseJoinColumns = { @JoinColumn(name = "course_id") }
+    )
+    Set<Course> courses;
 
     @Override
     public boolean equals(Object o) {
