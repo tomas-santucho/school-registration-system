@@ -4,9 +4,6 @@ import io.metadata.schoolsystem.courses.modelAsammbler.CourseModelAssembler;
 import io.metadata.schoolsystem.courses.models.Course;
 import io.metadata.schoolsystem.courses.repositories.CourseRepository;
 import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
-import io.metadata.schoolsystem.students.modelAsammbler.StudentModelAssembler;
-import io.metadata.schoolsystem.students.models.Student;
-import io.metadata.schoolsystem.students.repositories.StudentRepository;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -25,36 +22,35 @@ public class CoursesController {
     private final CourseRepository service;
     private final CourseModelAssembler assembler;
 
-    public CoursesController(CourseRepository aStudentService, CourseModelAssembler anAssembler) {
-        this.service = aStudentService;
+    public CoursesController(CourseRepository aService, CourseModelAssembler anAssembler) {
+        this.service = aService;
         this.assembler = anAssembler;
     }
 
     @GetMapping("/all")
     public CollectionModel<EntityModel<Course>> all() {
-        List<EntityModel<Course>> students = service.findAll().stream()
+        List<EntityModel<Course>> courses = service.findAll().stream()
                 .map(assembler::toModel)
                 .collect(Collectors.toList());
 
-        return CollectionModel.of(students, linkTo(methodOn(CoursesController.class).all()).withSelfRel());
+        return CollectionModel.of(courses, linkTo(methodOn(CoursesController.class).all()).withSelfRel());
     }
-
     @GetMapping("/{id}")
     public EntityModel<Course> one(@PathVariable Long id) {
         //FIX THIS
-        final Course student;
+        final Course course;
         try {
-            student = service.findById(id)
+            course = service.findById(id)
                     .orElseThrow(() -> new StudentNotFoundException(id.toString()));
         } catch (StudentNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return assembler.toModel(student);
+        return assembler.toModel(course);
     }
 
     @PostMapping("/register")
-    ResponseEntity<?> addStudent(@RequestBody Course newStudent) {
-        var entityModel = assembler.toModel(service.save(newStudent));
+    ResponseEntity<?> addCourse(@RequestBody Course newCourse) {
+        var entityModel = assembler.toModel(service.save(newCourse));
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
@@ -62,21 +58,20 @@ public class CoursesController {
 
 
     @PutMapping("/update/{id}")
-    ResponseEntity<?> updateStudent(@RequestBody Course newStudent, @PathVariable Long id) {
-        var updatedStudent = service.findById(id)
-                .map(student -> {
-                    student.setName(newStudent.getName());
-                   // student.setSurname(newStudent.getSurname());
-                   // student.setBornDate(newStudent.getBornDate());
-                    return service.save(student);
+    ResponseEntity<?> updateCourse(@RequestBody Course newCourse, @PathVariable Long id) {
+        var updatedCourse = service.findById(id)
+                .map(course -> {
+                    course.setName(newCourse.getName());
+                    course.setStudents(newCourse.getStudents());
+                    return service.save(course);
                 })
                 .orElseGet(() -> {
-                    newStudent.setId(id);
-                    return service.save(newStudent);
+                    newCourse.setId(id);
+                    return service.save(newCourse);
                 });
-        var entityModel = assembler.toModel(updatedStudent);
+        var entityModel = assembler.toModel(updatedCourse);
 
-        return ResponseEntity //
+        return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
     }

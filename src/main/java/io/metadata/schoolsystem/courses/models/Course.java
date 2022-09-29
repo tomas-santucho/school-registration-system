@@ -21,15 +21,8 @@ public class Course {
     @Column(name = "id", nullable = false)
     Long id;
     String name;
-   // @ManyToMany
-   // @JoinTable(
-     //       name = "STUDENTS_COURSES",
-       //     joinColumns = @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID"),
-         //   inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
-  //  )
     @ManyToMany(mappedBy = "courses")
-    Set<Student> employees;
-   // private Set<Student> students;
+    Set<Student> students;
 
 
     @Override

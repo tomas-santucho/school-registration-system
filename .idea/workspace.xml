@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b6830e-061d-4f00-b149-73bd25ed9e17" name="Changes" comment="Setup postgres">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/exceptions/StudentNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/modelAsammbler/CourseModelAssembler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/repositories/CourseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/courses/controllers/CoursesControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/SchoolSystemApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/SchoolSystemApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +42,8 @@
       <list>
         <option value="Record" />
         <option value="Kotlin Class" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -77,31 +74,34 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2FMJxrrgbKvgIIl2s31lIYOp0N4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/home/thomasdesch/IdeaProjects/school-registration-system/src/main/java/io/metadata/schoolsystem/courses",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "107f7726fb220dd9fc557ae4c6fb4489"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/thomasdesch/IdeaProjects/school-registration-system/src/main/java/io/metadata/schoolsystem/courses&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;107f7726fb220dd9fc557ae4c6fb4489&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses" />
@@ -260,6 +260,7 @@
       <updated>1664296269125</updated>
       <workItem from="1664296270422" duration="1809000" />
       <workItem from="1664395360018" duration="6619000" />
+      <workItem from="1664412138139" duration="1265000" />
     </task>
     <task id="LOCAL-00001" summary="Spring setup">
       <created>1664296490285</created>

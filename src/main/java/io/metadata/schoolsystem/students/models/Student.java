@@ -1,7 +1,9 @@
 package io.metadata.schoolsystem.students.models;
 
 import io.metadata.schoolsystem.courses.models.Course;
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
@@ -12,7 +14,6 @@ import java.util.Set;
 @Table(name = "students")
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 public class Student {
     @Id
@@ -41,5 +42,15 @@ public class Student {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    @Override
+    public String
+    toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "name = " + name + ", " +
+                "surname = " + surname + ", " +
+                "bornDate = " + bornDate + ")";
     }
 }
