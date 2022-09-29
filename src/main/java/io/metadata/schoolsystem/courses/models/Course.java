@@ -1,6 +1,6 @@
-package io.metadata.schoolsystem.students.models;
+package io.metadata.schoolsystem.courses.models;
 
-import io.metadata.schoolsystem.courses.models.Course;
+import io.metadata.schoolsystem.students.models.Student;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -11,32 +11,26 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "students")
+@Table(name = "courses")
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class Student {
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     Long id;
     String name;
-    String surname;
-    String bornDate;
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "student_courses",
-            joinColumns = { @JoinColumn(name = "student_id") },
-            inverseJoinColumns = { @JoinColumn(name = "course_id") }
-    )
-    Set<Course> courses;
+    @ManyToMany(mappedBy = "courses")
+    Set<Student> students;
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Student student = (Student) o;
-        return id != null && Objects.equals(id, student.id);
+        var course = (Course) o;
+        return id != null && Objects.equals(id, course.id);
     }
 
     @Override
@@ -45,12 +39,9 @@ public class Student {
     }
 
     @Override
-    public String
-    toString() {
+    public String toString() {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
-                "name = " + name + ", " +
-                "surname = " + surname + ", " +
-                "bornDate = " + bornDate + ")";
+                "name = " + name + ")";
     }
 }
