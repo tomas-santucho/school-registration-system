@@ -1,6 +1,7 @@
 package io.metadata.schoolsystem;
 
 import io.metadata.schoolsystem.courses.controllers.CoursesController;
+import io.metadata.schoolsystem.registration.controllers.RegistrationController;
 import io.metadata.schoolsystem.students.controllers.StudentController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,14 @@ class SchoolSystemApplicationTests {
     private StudentController studentController;
     @Autowired
     private CoursesController coursesController;
+    @Autowired
+    private RegistrationController registrationController;
 
     @Test
     void contextLoads() {
         assertThat(studentController).isNotNull();
         assertThat(coursesController).isNotNull();
+        assertThat(registrationController).isNotNull();
     }
 
 }

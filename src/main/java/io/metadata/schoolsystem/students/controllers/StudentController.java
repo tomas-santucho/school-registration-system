@@ -3,7 +3,7 @@ package io.metadata.schoolsystem.students.controllers;
 import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
 import io.metadata.schoolsystem.students.modelAsammbler.StudentModelAssembler;
 import io.metadata.schoolsystem.students.models.Student;
-import io.metadata.schoolsystem.students.repositories.StudentRepository;
+import io.metadata.schoolsystem.students.services.StudentService;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -13,53 +13,48 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static io.metadata.schoolsystem.utils.Endpoints.*;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.reactive.WebFluxLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping(STUDENTS)
 public class StudentController {
 
-    private final StudentRepository service;
+    private final StudentService service;
     private final StudentModelAssembler assembler;
 
-    public StudentController(StudentRepository aStudentService, StudentModelAssembler anAssembler) {
+    public StudentController(StudentService aStudentService, StudentModelAssembler anAssembler) {
         this.service = aStudentService;
         this.assembler = anAssembler;
     }
 
-    @GetMapping("/all")
+    @GetMapping(ALL)
     public CollectionModel<EntityModel<Student>> all() {
-        List<EntityModel<Student>> students = service.findAll().stream() //
-                .map(assembler::toModel) //
+        List<EntityModel<Student>> students = service.findAll().stream()
+                .map(assembler::toModel)
                 .collect(Collectors.toList());
 
         return CollectionModel.of(students, linkTo(methodOn(StudentController.class).all()).withSelfRel());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(ID)
     public EntityModel<Student> one(@PathVariable Long id) {
-        //FIX THIS
-        final Student student;
         try {
-            student = service.findById(id)
-                    .orElseThrow(() -> new StudentNotFoundException(id.toString()));
+            return assembler.toModel(service.findByIdOrThrow(id));
         } catch (StudentNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return assembler.toModel(student);
     }
 
-    @PostMapping("/register")
+    @PostMapping(REGISTER)
     ResponseEntity<?> addStudent(@RequestBody Student newStudent) {
         var entityModel = assembler.toModel(service.save(newStudent));
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
     }
-
-
-    @PutMapping("/update/{id}")
+    @PutMapping(UPDATE)
     ResponseEntity<?> updateStudent(@RequestBody Student newStudent, @PathVariable Long id) {
         var updatedStudent = service.findById(id)
                 .map(student -> {
@@ -74,12 +69,12 @@ public class StudentController {
                 });
         var entityModel = assembler.toModel(updatedStudent);
 
-        return ResponseEntity //
+        return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping(DELETE)
     ResponseEntity<?> delete(@PathVariable Long id) {
         service.deleteById(id);
         return ResponseEntity.noContent().build();

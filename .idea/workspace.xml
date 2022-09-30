@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b6830e-061d-4f00-b149-73bd25ed9e17" name="Changes" comment="Setup postgres">
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/courses/controllers/CoursesControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/exceptions/CourseNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/services/CourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/exceptions/StudentNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/controllers/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/modelAsammbler/StudentModelAssembler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/models/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/repositories/StudentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/services/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/services/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/SchoolSystemApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/SchoolSystemApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +47,8 @@
       <list>
         <option value="Record" />
         <option value="Kotlin Class" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -78,6 +83,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2FMJxrrgbKvgIIl2s31lIYOp0N4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -94,7 +100,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/thomasdesch/IdeaProjects/school-registration-system/src/main/java/io/metadata/schoolsystem/courses&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/thomasdesch/IdeaProjects/school-registration-system/src/main/java/io/metadata/schoolsystem/registration&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -103,7 +109,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="io.metadata.schoolsystem.courses.exceptions" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration" />
       <recent name="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -116,9 +126,14 @@
       <recent name="io.metadata.schoolsystem.students.controllers" />
       <recent name="io.metadata.schoolsystem.model" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.metadata.schoolsystem.courses.services" />
+      <recent name="io.metadata.schoolsystem.registration.exceptions" />
+      <recent name="io.metadata.schoolsystem.students.exceptions" />
+    </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.SchoolSystemApplication">
-    <configuration name="SchoolSystemApplicationTests.contextLoads" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.SchoolSystemApplicationTests">
+    <configuration name="SchoolSystemApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -131,7 +146,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;io.metadata.schoolsystem.SchoolSystemApplicationTests.contextLoads&quot;" />
+            <option value="&quot;io.metadata.schoolsystem.SchoolSystemApplicationTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -242,11 +257,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SchoolSystemApplicationTests" />
         <item itemvalue="Gradle.StudentControllerTest" />
         <item itemvalue="Gradle.StudentControllerTest.deleteProduct" />
         <item itemvalue="Gradle.StudentControllerTest.createProduct" />
         <item itemvalue="Gradle.StudentControllerTest.whenValidInput_thenReturns200" />
-        <item itemvalue="Gradle.SchoolSystemApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -261,6 +276,7 @@
       <workItem from="1664296270422" duration="1809000" />
       <workItem from="1664395360018" duration="6619000" />
       <workItem from="1664412138139" duration="1265000" />
+      <workItem from="1664580091061" duration="1449000" />
     </task>
     <task id="LOCAL-00001" summary="Spring setup">
       <created>1664296490285</created>
@@ -332,6 +348,7 @@
     <MESSAGE value="Spring &amp; Gradle setup" />
     <MESSAGE value="Add Hateoas" />
     <MESSAGE value="Setup postgres" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup postgres" />
+    <MESSAGE value="Set up Courses CRUD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set up Courses CRUD" />
   </component>
 </project>
