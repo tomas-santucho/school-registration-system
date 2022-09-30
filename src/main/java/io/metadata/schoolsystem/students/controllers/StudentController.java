@@ -55,7 +55,7 @@ public class StudentController {
                 .body(entityModel);
     }
     @PutMapping(UPDATE)
-    ResponseEntity<?> updateStudent(@RequestBody Student newStudent, @PathVariable Long id) throws StudentNotFoundException {
+    ResponseEntity<?> updateStudent(@RequestBody Student newStudent, @PathVariable Long id) {
         var updatedStudent = service.findById(id)
                 .map(student -> {
                     student.setName(newStudent.getName());

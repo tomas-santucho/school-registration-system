@@ -2,9 +2,8 @@ package io.metadata.schoolsystem.courses.controllers;
 
 import io.metadata.schoolsystem.courses.modelAsammbler.CourseModelAssembler;
 import io.metadata.schoolsystem.courses.models.Course;
-import io.metadata.schoolsystem.courses.repositories.CourseRepository;
+import io.metadata.schoolsystem.courses.services.CourseService;
 import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -21,10 +20,10 @@ import static org.springframework.hateoas.server.reactive.WebFluxLinkBuilder.met
 @RestController
 @RequestMapping(COURSES)
 public class CoursesController {
-    private final CourseRepository service;
+    private final CourseService service;
     private final CourseModelAssembler assembler;
 
-    public CoursesController(CourseRepository aService, CourseModelAssembler anAssembler) {
+    public CoursesController(CourseService aService, CourseModelAssembler anAssembler) {
         this.service = aService;
         this.assembler = anAssembler;
     }
@@ -37,6 +36,7 @@ public class CoursesController {
 
         return CollectionModel.of(courses, linkTo(methodOn(CoursesController.class).all()).withSelfRel());
     }
+
     @GetMapping(ID)
     public EntityModel<Course> one(@PathVariable Long id) {
         //FIX THIS
