@@ -1,20 +1,24 @@
 package io.metadata.schoolsystem.courses.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import io.metadata.schoolsystem.students.models.Student;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "courses")
+@NamedQueries({
+        @NamedQuery(name = "findAllById", query = "select distinct c from Course c inner join c.students students where students.id = :id")
+})
 @Getter
 @Setter
-@RequiredArgsConstructor
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +26,8 @@ public class Course {
     Long id;
     String name;
     @ManyToMany(mappedBy = "courses")
-    Set<Student> students;
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    Set<Student> students = new HashSet<>();
 
 
     @Override

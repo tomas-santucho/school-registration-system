@@ -37,4 +37,11 @@ public class StudentService {
         repository.deleteById(id);
     }
 
+    public Set<Student> findAllByCourseId(final long id) {
+        return repository.findAllByCourseId(id);
+    }
+
+    public Set<Student> findStudentsWithoutCourses() {
+        return repository.findStudentsWithoutCourses();
+    }
 }

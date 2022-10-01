@@ -37,4 +37,11 @@ public class CourseService {
         repository.deleteById(id);
     }
 
+    public Set<Course> findEmptyCourses() {
+        return repository.findEmptyCourses();
+    }
+
+    public Set<Course> findCourseByStudentId(final long id) {
+        return repository.findAllByStudentId(id);
+    }
 }
