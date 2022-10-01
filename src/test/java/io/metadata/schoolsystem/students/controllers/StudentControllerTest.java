@@ -2,7 +2,7 @@ package io.metadata.schoolsystem.students.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.metadata.schoolsystem.AbstractTest;
-import io.metadata.schoolsystem.students.models.Student;
+import io.metadata.schoolsystem.models.Student;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;

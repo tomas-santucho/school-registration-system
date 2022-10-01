@@ -1,8 +1,8 @@
-package io.metadata.schoolsystem.courses.services;
+package io.metadata.schoolsystem.services;
 
 import io.metadata.schoolsystem.courses.exceptions.CourseNotFoundException;
-import io.metadata.schoolsystem.courses.models.Course;
-import io.metadata.schoolsystem.courses.repositories.CourseRepository;
+import io.metadata.schoolsystem.models.Course;
+import io.metadata.schoolsystem.repositories.CourseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

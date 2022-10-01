@@ -1,6 +1,6 @@
-package io.metadata.schoolsystem.students.repositories;
+package io.metadata.schoolsystem.repositories;
 
-import io.metadata.schoolsystem.students.models.Student;
+import io.metadata.schoolsystem.models.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

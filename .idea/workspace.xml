@@ -5,19 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32b6830e-061d-4f00-b149-73bd25ed9e17" name="Changes" comment="Set up Registration API">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentSpecifications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/courses/repositories/CourseRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/providers/CourseProviders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/providers/StudentProviders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/RegistrationServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/StudentServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/students/repositories/StudentRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/repositories/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/repositories/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/modelAsammbler/CourseModelAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/modelAsammbler/CourseModelAssembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/models/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/repositories/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/repositories/CourseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/controllers/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/exceptions/MaxCoursesException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/exceptions/MaxCoursesException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/exceptions/MaxStudentsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/exceptions/MaxStudentsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/services/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/services/RegistrationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/controllers/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/repositories/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/repositories/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/utils/Endpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/utils/Endpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/modelAsammbler/StudentModelAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/modelAsammbler/StudentModelAssembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/repositories/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/repositories/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/services/StudentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/students/controllers/StudentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/students/controllers/StudentControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/students/controllers/StudentProviders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/students/controllers/StudentProviders.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +86,7 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -125,6 +137,9 @@
       <recent name="io.metadata.schoolsystem.students.services" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="io.metadata.schoolsystem.services" />
+      <recent name="io.metadata.schoolsystem.courses.repositories" />
+      <recent name="io.metadata.schoolsystem.students.repositories" />
       <recent name="io.metadata.schoolsystem.students.controllers" />
       <recent name="io.metadata.schoolsystem.model" />
     </key>
@@ -134,8 +149,8 @@
       <recent name="io.metadata.schoolsystem.students.exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.SchoolSystemApplication">
-    <configuration name="SchoolSystemApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.StudentServiceTest">
+    <configuration name="CourseRepositoryTest.findById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -148,7 +163,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;io.metadata.schoolsystem.SchoolSystemApplicationTests&quot;" />
+            <option value="&quot;io.metadata.schoolsystem.courses.repositories.CourseRepositoryTest.findById&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -158,7 +173,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StudentControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RegistrationServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -171,7 +186,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;io.metadata.schoolsystem.students.controllers.StudentControllerTest&quot;" />
+            <option value="&quot;io.metadata.schoolsystem.services.RegistrationServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -181,7 +196,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StudentControllerTest.createProduct" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RegistrationServiceTest.register" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -194,7 +209,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;io.metadata.schoolsystem.students.controllers.StudentControllerTest.createProduct&quot;" />
+            <option value="&quot;io.metadata.schoolsystem.services.RegistrationServiceTest.register&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -204,7 +219,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StudentControllerTest.deleteProduct" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RegistrationServiceTest.register1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -217,7 +232,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;io.metadata.schoolsystem.students.controllers.StudentControllerTest.deleteProduct&quot;" />
+            <option value="&quot;io.metadata.schoolsystem.services.RegistrationServiceTest.register1&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -227,7 +242,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StudentControllerTest.whenValidInput_thenReturns200" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StudentServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -240,7 +255,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;io.metadata.schoolsystem.students.controllers.StudentControllerTest.whenValidInput_thenReturns200&quot;" />
+            <option value="&quot;io.metadata.schoolsystem.services.StudentServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -259,11 +274,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SchoolSystemApplicationTests" />
-        <item itemvalue="Gradle.StudentControllerTest" />
-        <item itemvalue="Gradle.StudentControllerTest.deleteProduct" />
-        <item itemvalue="Gradle.StudentControllerTest.createProduct" />
-        <item itemvalue="Gradle.StudentControllerTest.whenValidInput_thenReturns200" />
+        <item itemvalue="Gradle.StudentServiceTest" />
+        <item itemvalue="Gradle.RegistrationServiceTest" />
+        <item itemvalue="Gradle.RegistrationServiceTest.register1" />
+        <item itemvalue="Gradle.RegistrationServiceTest.register" />
+        <item itemvalue="Gradle.CourseRepositoryTest.findById" />
       </list>
     </recent_temporary>
   </component>
@@ -333,7 +348,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="development" />
+                        <option value="tests/development" />
                       </list>
                     </value>
                   </entry>
@@ -353,5 +368,26 @@
     <MESSAGE value="Setup postgres" />
     <MESSAGE value="Set up Courses CRUD" />
     <option name="LAST_COMMIT_MESSAGE" value="Set up Courses CRUD" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/services/RegistrationService.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/RegistrationServiceTest.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SchoolSystem$RegistrationServiceTest.ic" NAME="RegistrationServiceTest Coverage Results" MODIFIED="1664667247208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SchoolSystem$CourseRepositoryTest.ic" NAME="CourseRepositoryTest Coverage Results" MODIFIED="1664664944647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SchoolSystem$RegistrationServiceTest_register1.ic" NAME="RegistrationServiceTest.register1 Coverage Results" MODIFIED="1664667236850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

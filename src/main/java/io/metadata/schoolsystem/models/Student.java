@@ -1,41 +1,44 @@
-package io.metadata.schoolsystem.courses.models;
+package io.metadata.schoolsystem.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import io.metadata.schoolsystem.students.models.Student;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "courses")
-@NamedQueries({
-        @NamedQuery(name = "findAllById", query = "select distinct c from Course c inner join c.students students where students.id = :id")
-})
+@Table(name = "students")
 @Getter
 @Setter
-public class Course {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     Long id;
     String name;
-    @ManyToMany(mappedBy = "courses")
+    String surname;
+    String bornDate;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "student_courses",
+            joinColumns = {@JoinColumn(name = "student_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id")}
+    )
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    Set<Student> students = new HashSet<>();
-
+    List<Course> courses;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        var course = (Course) o;
-        return id != null && Objects.equals(id, course.id);
+        Student student = (Student) o;
+        return id != null && Objects.equals(id, student.id);
     }
 
     @Override
@@ -44,9 +47,12 @@ public class Course {
     }
 
     @Override
-    public String toString() {
+    public String
+    toString() {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
-                "name = " + name + ")";
+                "name = " + name + ", " +
+                "surname = " + surname + ", " +
+                "bornDate = " + bornDate + ")";
     }
 }

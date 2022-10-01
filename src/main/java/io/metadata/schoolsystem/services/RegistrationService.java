@@ -1,19 +1,17 @@
-package io.metadata.schoolsystem.registration.services;
+package io.metadata.schoolsystem.services;
 
 import io.metadata.schoolsystem.courses.exceptions.CourseNotFoundException;
-import io.metadata.schoolsystem.courses.services.CourseService;
 import io.metadata.schoolsystem.registration.exceptions.MaxCoursesException;
 import io.metadata.schoolsystem.registration.exceptions.MaxStudentsException;
 import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
-import io.metadata.schoolsystem.students.models.Student;
-import io.metadata.schoolsystem.students.services.StudentService;
+import io.metadata.schoolsystem.models.Student;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RegistrationService {
 
-    private final static int MAX_STUDENTS_PER_COURSE = 50;
-    private final static int MAX_COURSES_PER_STUDENT = 5;
+    public final static int MAX_STUDENTS_PER_COURSE = 50;
+    public final static int MAX_COURSES_PER_STUDENT = 5;
     private final CourseService courseRepository;
     private final StudentService studentService;
 

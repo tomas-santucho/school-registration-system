@@ -1,8 +1,8 @@
 package io.metadata.schoolsystem.courses.controllers;
 
 import io.metadata.schoolsystem.courses.modelAsammbler.CourseModelAssembler;
-import io.metadata.schoolsystem.courses.models.Course;
-import io.metadata.schoolsystem.courses.services.CourseService;
+import io.metadata.schoolsystem.models.Course;
+import io.metadata.schoolsystem.services.CourseService;
 import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;

@@ -1,6 +1,6 @@
 package io.metadata.schoolsystem.students.controllers;
 
-import io.metadata.schoolsystem.students.models.Student;
+import io.metadata.schoolsystem.models.Student;
 
 public class StudentProviders {
     public static String providesPostResponse(Student s) {

@@ -1,6 +1,6 @@
 package io.metadata.schoolsystem.registration.exceptions;
 
-import io.metadata.schoolsystem.students.models.Student;
+import io.metadata.schoolsystem.models.Student;
 
 public class MaxCoursesException extends Exception{
     public MaxCoursesException(final Student s) {

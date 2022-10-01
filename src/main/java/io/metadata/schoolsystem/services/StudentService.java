@@ -1,8 +1,8 @@
-package io.metadata.schoolsystem.students.services;
+package io.metadata.schoolsystem.services;
 
 import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
-import io.metadata.schoolsystem.students.models.Student;
-import io.metadata.schoolsystem.students.repositories.StudentRepository;
+import io.metadata.schoolsystem.models.Student;
+import io.metadata.schoolsystem.repositories.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

@@ -1,6 +1,6 @@
 package io.metadata.schoolsystem.courses.modelAsammbler;
 
-import io.metadata.schoolsystem.courses.models.Course;
+import io.metadata.schoolsystem.models.Course;
 import io.metadata.schoolsystem.students.controllers.StudentController;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;

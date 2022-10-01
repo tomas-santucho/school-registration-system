@@ -1,11 +1,11 @@
 package io.metadata.schoolsystem.students.controllers;
 
 import io.metadata.schoolsystem.courses.controllers.CoursesController;
-import io.metadata.schoolsystem.courses.repositories.CourseRepository;
+import io.metadata.schoolsystem.repositories.CourseRepository;
 import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
 import io.metadata.schoolsystem.students.modelAsammbler.StudentModelAssembler;
-import io.metadata.schoolsystem.students.models.Student;
-import io.metadata.schoolsystem.students.services.StudentService;
+import io.metadata.schoolsystem.models.Student;
+import io.metadata.schoolsystem.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
