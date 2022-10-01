@@ -1,12 +1,14 @@
 package io.metadata.schoolsystem.students.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import io.metadata.schoolsystem.courses.models.Course;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,7 +16,6 @@ import java.util.Set;
 @Table(name = "students")
 @Getter
 @Setter
-@RequiredArgsConstructor
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,13 +24,14 @@ public class Student {
     String name;
     String surname;
     String bornDate;
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "student_courses",
-            joinColumns = { @JoinColumn(name = "student_id") },
-            inverseJoinColumns = { @JoinColumn(name = "course_id") }
+            joinColumns = {@JoinColumn(name = "student_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id")}
     )
-    Set<Course> courses;
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    Set<Course> courses = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {

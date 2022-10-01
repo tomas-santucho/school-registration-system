@@ -1,9 +1,12 @@
 package io.metadata.schoolsystem.students.controllers;
 
+import io.metadata.schoolsystem.courses.controllers.CoursesController;
+import io.metadata.schoolsystem.courses.repositories.CourseRepository;
 import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
 import io.metadata.schoolsystem.students.modelAsammbler.StudentModelAssembler;
 import io.metadata.schoolsystem.students.models.Student;
 import io.metadata.schoolsystem.students.services.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -22,6 +25,10 @@ import static org.springframework.hateoas.server.reactive.WebFluxLinkBuilder.met
 public class StudentController {
 
     private final StudentService service;
+
+    @Autowired
+    CourseRepository courseRepository;
+
     private final StudentModelAssembler assembler;
 
     public StudentController(StudentService aStudentService, StudentModelAssembler anAssembler) {
@@ -47,6 +54,24 @@ public class StudentController {
         }
     }
 
+    @GetMapping(FIND_BY_COURSE_ID)
+    public CollectionModel<EntityModel<Student>> byCourseId(@PathVariable Long id) {
+        var students = service.findAllByCourseId(id).stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toSet());
+
+        return CollectionModel.of(students, linkTo(methodOn(StudentController.class).all()).withSelfRel());
+    }
+
+    @GetMapping(STUDENTS_WITHOUT_COURSES)
+    public CollectionModel<EntityModel<Student>> emptyCourses() {
+        var students = service.findStudentsWithoutCourses().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toSet());
+
+        return CollectionModel.of(students, linkTo(methodOn(CoursesController.class).all()).withSelfRel());
+    }
+
     @PostMapping(REGISTER)
     ResponseEntity<?> addStudent(@RequestBody Student newStudent) {
         var entityModel = assembler.toModel(service.save(newStudent));
@@ -54,6 +79,7 @@ public class StudentController {
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
     }
+
     @PutMapping(UPDATE)
     ResponseEntity<?> updateStudent(@RequestBody Student newStudent, @PathVariable Long id) {
         var updatedStudent = service.findById(id)

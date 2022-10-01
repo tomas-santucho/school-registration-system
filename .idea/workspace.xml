@@ -4,18 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b6830e-061d-4f00-b149-73bd25ed9e17" name="Changes" comment="Setup postgres">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/exceptions/CourseNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/services/CourseService.java" afterDir="false" />
+    <list default="true" id="32b6830e-061d-4f00-b149-73bd25ed9e17" name="Changes" comment="Set up Registration API">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentSpecifications.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/exceptions/StudentNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/controllers/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/modelAsammbler/StudentModelAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/models/Student.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/repositories/StudentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/services/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/registration/services/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/controllers/CoursesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/models/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/repositories/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/repositories/CourseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/courses/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/controllers/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/repositories/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/repositories/StudentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/students/services/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/SchoolSystemApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/SchoolSystemApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/utils/Endpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/utils/Endpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +134,7 @@
       <recent name="io.metadata.schoolsystem.students.exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.SchoolSystemApplicationTests">
+  <component name="RunManager" selected="Spring Boot.SchoolSystemApplication">
     <configuration name="SchoolSystemApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -277,6 +279,7 @@
       <workItem from="1664395360018" duration="6619000" />
       <workItem from="1664412138139" duration="1265000" />
       <workItem from="1664580091061" duration="1449000" />
+      <workItem from="1664646688353" duration="5036000" />
     </task>
     <task id="LOCAL-00001" summary="Spring setup">
       <created>1664296490285</created>

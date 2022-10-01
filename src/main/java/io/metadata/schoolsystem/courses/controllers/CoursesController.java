@@ -50,6 +50,24 @@ public class CoursesController {
         return assembler.toModel(course);
     }
 
+    @GetMapping(FIND_BY_STUDENT_ID)
+    public CollectionModel<EntityModel<Course>> byStudentId(@PathVariable Long id) {
+        List<EntityModel<Course>> courses = service.findCourseByStudentId(id).stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+
+        return CollectionModel.of(courses, linkTo(methodOn(CoursesController.class).all()).withSelfRel());
+    }
+
+    @GetMapping(EMPTY_COURSES)
+    public CollectionModel<EntityModel<Course>> emptyCourses() {
+        List<EntityModel<Course>> courses = service.findEmptyCourses().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+
+        return CollectionModel.of(courses, linkTo(methodOn(CoursesController.class).all()).withSelfRel());
+    }
+
     @PostMapping(REGISTER)
     ResponseEntity<?> addCourse(@RequestBody Course newCourse) {
         var entityModel = assembler.toModel(service.save(newCourse));
