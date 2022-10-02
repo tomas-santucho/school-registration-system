@@ -1,4 +1,4 @@
-package io.metadata.schoolsystem.registration.exceptions;
+package io.metadata.schoolsystem.exceptions;
 
 import io.metadata.schoolsystem.models.Course;
 

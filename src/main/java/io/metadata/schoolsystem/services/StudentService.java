@@ -1,13 +1,11 @@
 package io.metadata.schoolsystem.services;
 
-import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
+import io.metadata.schoolsystem.exceptions.StudentNotFoundException;
 import io.metadata.schoolsystem.models.Student;
 import io.metadata.schoolsystem.repositories.StudentRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class StudentService {
@@ -29,8 +27,8 @@ public class StudentService {
         return repository.save(s);
     }
 
-    public Set<Student> findAll() {
-        return new HashSet<>(repository.findAll());
+    public List<Student> findAll() {
+        return repository.findAll();
     }
 
     public void deleteById(final long id) {

@@ -1,6 +1,6 @@
-package io.metadata.schoolsystem.students.modelAsammbler;
+package io.metadata.schoolsystem.asemblers;
 
-import io.metadata.schoolsystem.students.controllers.StudentController;
+import io.metadata.schoolsystem.controllers.StudentController;
 import io.metadata.schoolsystem.models.Student;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;

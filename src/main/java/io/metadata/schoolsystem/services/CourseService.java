@@ -1,11 +1,12 @@
 package io.metadata.schoolsystem.services;
 
-import io.metadata.schoolsystem.courses.exceptions.CourseNotFoundException;
+import io.metadata.schoolsystem.exceptions.CourseNotFoundException;
 import io.metadata.schoolsystem.models.Course;
 import io.metadata.schoolsystem.repositories.CourseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -29,8 +30,8 @@ public class CourseService {
         return repository.save(s);
     }
 
-    public Set<Course> findAll() {
-        return new HashSet<>(repository.findAll());
+    public List<Course> findAll() {
+        return repository.findAll();
     }
 
     public void deleteById(final long id) {

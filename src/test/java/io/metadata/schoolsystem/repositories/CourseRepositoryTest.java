@@ -1,7 +1,7 @@
-package io.metadata.schoolsystem.students.repositories;
+package io.metadata.schoolsystem.repositories;
 
 import io.metadata.schoolsystem.models.Course;
-import io.metadata.schoolsystem.repositories.StudentRepository;
+import io.metadata.schoolsystem.repositories.CourseRepository;
 import io.metadata.schoolsystem.models.Student;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,13 +18,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class StudentRepositoryTest {
+public class CourseRepositoryTest {
 
     @Autowired
-    private StudentRepository repository;
-    private final String name = "John";
-    private final String surname = "Smith";
-    private final Course javaCourse = new Course("Java");
+    private CourseRepository repository;
+    private final String name = "Java Course";
+    private final Student Student = providesStudent();
 
     @AfterEach
     void afterAll() {
@@ -39,21 +38,14 @@ public class StudentRepositoryTest {
     @Test
     @DisplayName("WHEN student is saved THEN it properties are correct")
     public void save() {
-        //given
-        var courses = List.of(javaCourse);
-        var student = Student.builder().
-                name(name).
-                surname(surname).
-                courses((courses)).
-                build();
+        var course = providesCourse();
         //when
-        var savedStudent = repository.save(student);
+        var savedCourse = repository.save(course);
         //then
-        assertThat(savedStudent).isNotNull();
-        assertThat(savedStudent.getId()).isGreaterThan(0);
-        assertThat(savedStudent.getName()).isEqualTo(name);
-        assertThat(savedStudent.getSurname()).isEqualTo(surname);
-        assertThat(savedStudent.getCourses()).containsExactly(javaCourse);
+        assertThat(savedCourse).isNotNull();
+        assertThat(savedCourse.getId()).isGreaterThan(0);
+        assertThat(savedCourse.getName()).isEqualTo(course.getName());
+        assertThat(savedCourse.getStudents()).containsExactly(course.getStudents().get(0));
     }
 
     @Test
@@ -81,7 +73,7 @@ public class StudentRepositoryTest {
     @DisplayName("WHEN student is deleted THEN is present")
     public void findById() {
         //GIVEN
-        var student = providesStudent();
+        var student = providesCourse();
         var savedStudent = repository.save(student);
         //WHEN
         var newStudent = repository.findById(savedStudent.getId());
@@ -91,11 +83,15 @@ public class StudentRepositoryTest {
         assertThat(finalStudent).isNotNull();
         assertThat(finalStudent.getId()).isGreaterThan(0);
         assertThat(finalStudent.getName()).isEqualTo(student.getName());
-        assertThat(finalStudent.getSurname()).isEqualTo(student.getSurname());
-        assertThat(finalStudent.getCourses()).containsExactly(student.getCourses().get(0));
+        assertThat(finalStudent.getStudents()).containsExactly(student.getStudents().get(0));
     }
 
-    private Student saveStudent() {
-        return repository.save(providesStudent());
+    private Course saveStudent() {
+        return repository.save(providesCourse());
+    }
+
+    private Course providesCourse() {
+        var courses = List.of(Student);
+        return Course.builder().name(name).students(courses).build();
     }
 }

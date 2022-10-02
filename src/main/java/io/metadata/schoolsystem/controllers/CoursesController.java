@@ -1,9 +1,11 @@
-package io.metadata.schoolsystem.courses.controllers;
+package io.metadata.schoolsystem.controllers;
 
-import io.metadata.schoolsystem.courses.modelAsammbler.CourseModelAssembler;
+import io.metadata.schoolsystem.asemblers.CourseModelAssembler;
+import io.metadata.schoolsystem.exceptions.CourseNotFoundException;
 import io.metadata.schoolsystem.models.Course;
 import io.metadata.schoolsystem.services.CourseService;
-import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
+import io.metadata.schoolsystem.exceptions.StudentNotFoundException;
+import org.springframework.context.annotation.Import;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -18,6 +20,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.reactive.WebFluxLinkBuilder.methodOn;
 
 @RestController
+@Import(CourseService.class)
 @RequestMapping(COURSES)
 public class CoursesController {
     private final CourseService service;
@@ -42,9 +45,8 @@ public class CoursesController {
         //FIX THIS
         final Course course;
         try {
-            course = service.findById(id)
-                    .orElseThrow(() -> new StudentNotFoundException(id));
-        } catch (StudentNotFoundException e) {
+            course = service.findByIdOrThrow(id);
+        } catch (CourseNotFoundException e) {
             throw new RuntimeException(e);
         }
         return assembler.toModel(course);

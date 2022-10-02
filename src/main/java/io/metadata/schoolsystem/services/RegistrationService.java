@@ -1,9 +1,9 @@
 package io.metadata.schoolsystem.services;
 
-import io.metadata.schoolsystem.courses.exceptions.CourseNotFoundException;
-import io.metadata.schoolsystem.registration.exceptions.MaxCoursesException;
-import io.metadata.schoolsystem.registration.exceptions.MaxStudentsException;
-import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
+import io.metadata.schoolsystem.exceptions.CourseNotFoundException;
+import io.metadata.schoolsystem.exceptions.MaxCoursesException;
+import io.metadata.schoolsystem.exceptions.MaxStudentsException;
+import io.metadata.schoolsystem.exceptions.StudentNotFoundException;
 import io.metadata.schoolsystem.models.Student;
 import org.springframework.stereotype.Service;
 

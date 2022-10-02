@@ -19,7 +19,7 @@ public class CourseProviders {
       return new Course("Java Course");
     }
 
-    public static Student providesNullStudent() {
+    public static Course providesNullCourse() {
         return null;
     }
 }

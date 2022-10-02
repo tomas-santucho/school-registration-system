@@ -1,4 +1,4 @@
-package io.metadata.schoolsystem.courses.exceptions;
+package io.metadata.schoolsystem.exceptions;
 
 public class CourseNotFoundException extends Exception {
     public CourseNotFoundException(long id) {

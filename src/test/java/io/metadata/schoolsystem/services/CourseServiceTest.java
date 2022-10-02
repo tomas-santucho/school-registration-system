@@ -1,7 +1,7 @@
 package io.metadata.schoolsystem.services;
 
-import io.metadata.schoolsystem.exceptions.StudentNotFoundException;
-import io.metadata.schoolsystem.repositories.StudentRepository;
+import io.metadata.schoolsystem.exceptions.CourseNotFoundException;
+import io.metadata.schoolsystem.repositories.CourseRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,33 +11,34 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
-import static io.metadata.schoolsystem.providers.StudentProviders.providesNullStudent;
+import static io.metadata.schoolsystem.providers.CourseProviders.providesNullCourse;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-class StudentServiceTest {
+class CourseServiceTest {
 
     @Mock
-    private StudentRepository repository;
+    private CourseRepository repository;
 
     @InjectMocks
-    private StudentService studentService;
+    private CourseService courseService;
 
     @Test
     @DisplayName("WHEN student is saved THEN it properties are correct")
-    public void findByIdOrThrows() {
+    public void findByIdOrThrow() {
         //GIVEN
-        var opt = Optional.ofNullable(providesNullStudent());
-        var id = 4L;
-        given(repository.findById(id)).willReturn(opt);
-        //WHEN
-        var e = assertThrows(StudentNotFoundException.class, () -> {
-            studentService.findByIdOrThrow(id);
+       var opt = Optional.ofNullable(providesNullCourse());
+       var id = 4L;
+       given(repository.findById(id)).willReturn(opt);
+       //WHEN
+        var e = assertThrows(CourseNotFoundException.class, () -> {
+            courseService.findByIdOrThrow(id);
         });
         //THEN
         assertThat(e.getMessage()).contains(String.valueOf(id));
@@ -50,9 +51,9 @@ class StudentServiceTest {
         var id = 4L;
         doNothing().when(repository).deleteById(id);
         //WHEN
-        studentService.deleteById(id);
+        courseService.deleteById(id);
         //THEN
-        verify(repository).deleteById(id);
+       verify(repository).deleteById(id);
     }
 
     @Test
@@ -61,7 +62,7 @@ class StudentServiceTest {
         //GIVEN
         given(repository.findAll()).willReturn(null);
         //WHEN
-        studentService.findAll();
+        courseService.findAll();
         //THEN
         verify(repository).findAll();
     }
@@ -70,11 +71,11 @@ class StudentServiceTest {
     @DisplayName("WHEN service findAll is called repository method is called")
     public void findEmptyCourses() {
         //GIVEN
-        given(repository.findStudentsWithoutCourses()).willReturn(null);
+        given(repository.findEmptyCourses()).willReturn(null);
         //WHEN
-        studentService.findStudentsWithoutCourses();
+        courseService.findEmptyCourses();
         //THEN
-        verify(repository).findStudentsWithoutCourses();
+        verify(repository).findEmptyCourses();
     }
 
 
@@ -83,11 +84,11 @@ class StudentServiceTest {
     public void findAllByStudentId() {
         //GIVEN
         var id = 4L;
-        given(repository.findAllByCourseId(id)).willReturn(null);
+        given(repository.findAllByStudentId(id)).willReturn(null);
         //WHEN
-        studentService.findAllByCourseId(id);
+        courseService.findCourseByStudentId(id);
         //THEN
-        verify(repository).findAllByCourseId(id);
+        verify(repository).findAllByStudentId(id);
     }
 
     @Test
@@ -97,7 +98,7 @@ class StudentServiceTest {
         var id = 4L;
         given(repository.save(any())).willReturn(null);
         //WHEN
-        studentService.save(any());
+        courseService.save(any());
         //THEN
         verify(repository).save(any());
     }
@@ -109,10 +110,8 @@ class StudentServiceTest {
         var id = 4L;
         given(repository.findById(id)).willReturn(null);
         //WHEN
-        studentService.findById(id);
+        courseService.findById(id);
         //THEN
         verify(repository).findById(id);
     }
-
-
 }

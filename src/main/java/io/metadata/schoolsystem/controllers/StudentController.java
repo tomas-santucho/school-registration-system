@@ -1,10 +1,9 @@
-package io.metadata.schoolsystem.students.controllers;
+package io.metadata.schoolsystem.controllers;
 
-import io.metadata.schoolsystem.courses.controllers.CoursesController;
-import io.metadata.schoolsystem.repositories.CourseRepository;
-import io.metadata.schoolsystem.students.exceptions.StudentNotFoundException;
-import io.metadata.schoolsystem.students.modelAsammbler.StudentModelAssembler;
+import io.metadata.schoolsystem.asemblers.StudentModelAssembler;
+import io.metadata.schoolsystem.exceptions.StudentNotFoundException;
 import io.metadata.schoolsystem.models.Student;
+import io.metadata.schoolsystem.repositories.CourseRepository;
 import io.metadata.schoolsystem.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
@@ -25,11 +24,9 @@ import static org.springframework.hateoas.server.reactive.WebFluxLinkBuilder.met
 public class StudentController {
 
     private final StudentService service;
-
+    private final StudentModelAssembler assembler;
     @Autowired
     CourseRepository courseRepository;
-
-    private final StudentModelAssembler assembler;
 
     public StudentController(StudentService aStudentService, StudentModelAssembler anAssembler) {
         this.service = aStudentService;
