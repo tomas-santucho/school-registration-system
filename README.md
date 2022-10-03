@@ -4,7 +4,10 @@
 ![coverage](https://i.imgur.com/GwEKO3G.png)
 
 ## Endpoints and payloads
-## How to setup project
+
+- Check swagger-ui/index.html
+
+## How to set up project
 —-------------------------------------------------------
 - download the code : https://github.com/tomas-santucho/school-registration-system.git
 - execute the following commands
