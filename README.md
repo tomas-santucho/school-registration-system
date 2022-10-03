@@ -5,7 +5,7 @@
 
 ## Endpoints and payloads
 
-- Check swagger-ui/index.html
+- Check http://localhost:8080/swagger-ui/index.html
 
 ## How to set up project
 —-------------------------------------------------------
