@@ -15,7 +15,6 @@ import static io.metadata.schoolsystem.providers.CourseProviders.providesNullCou
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
@@ -30,22 +29,22 @@ class CourseServiceTest {
     private CourseService courseService;
 
     @Test
-    @DisplayName("WHEN student is saved THEN it properties are correct")
+    @DisplayName("WHEN findByIdOrThrow is called with a missing course THEN it throws an e")
     public void findByIdOrThrow() {
         //GIVEN
-       var opt = Optional.ofNullable(providesNullCourse());
-       var id = 4L;
-       given(repository.findById(id)).willReturn(opt);
-       //WHEN
-        var e = assertThrows(CourseNotFoundException.class, () -> {
-            courseService.findByIdOrThrow(id);
-        });
+        var opt = Optional.ofNullable(providesNullCourse());
+        var id = 4L;
+        given(repository.findById(id)).willReturn(opt);
+        //WHEN
+        var e = assertThrows(CourseNotFoundException.class, () ->
+            courseService.findByIdOrThrow(id)
+        );
         //THEN
         assertThat(e.getMessage()).contains(String.valueOf(id));
     }
 
     @Test
-    @DisplayName("WHEN student is saved THEN it properties are correct")
+    @DisplayName("WHEN deleteById is called THEN it properties are correct")
     public void deleteById() {
         //GIVEN
         var id = 4L;
@@ -53,7 +52,7 @@ class CourseServiceTest {
         //WHEN
         courseService.deleteById(id);
         //THEN
-       verify(repository).deleteById(id);
+        verify(repository).deleteById(id);
     }
 
     @Test
@@ -68,7 +67,7 @@ class CourseServiceTest {
     }
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service findEmptyCourses is called repository method is called")
     public void findEmptyCourses() {
         //GIVEN
         given(repository.findEmptyCourses()).willReturn(null);
@@ -80,7 +79,7 @@ class CourseServiceTest {
 
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service findAllByStudentId is called repository method is called")
     public void findAllByStudentId() {
         //GIVEN
         var id = 4L;
@@ -92,10 +91,9 @@ class CourseServiceTest {
     }
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service save is called repository method is called")
     public void save() {
         //GIVEN
-        var id = 4L;
         given(repository.save(any())).willReturn(null);
         //WHEN
         courseService.save(any());
@@ -104,7 +102,7 @@ class CourseServiceTest {
     }
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service findById is called repository method is called")
     public void findById() {
         //GIVEN
         var id = 4L;

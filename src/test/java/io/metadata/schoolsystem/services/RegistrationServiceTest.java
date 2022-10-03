@@ -36,7 +36,7 @@ class RegistrationServiceTest {
     private RegistrationService registrationService;
 
     @Test
-    @DisplayName("WHEN student is saved THEN it properties are correct")
+    @DisplayName("WHEN register is called with a number higher than max courses THEN it throws an ex")
     public void register() throws StudentNotFoundException, CourseNotFoundException {
         //GIVEN
         var student = providesStudent();
@@ -50,15 +50,15 @@ class RegistrationServiceTest {
         given(studentService.findByIdOrThrow(id)).willReturn(student);
         given(courseService.findByIdOrThrow(id)).willReturn(course);
         //WHEN
-        var e = assertThrows(MaxCoursesException.class, () -> {
-            registrationService.register(id, id);
-        });
+        var e = assertThrows(MaxCoursesException.class, () ->
+            registrationService.register(id, id)
+        );
         //THEN
         assertThat(e.getMessage()).contains(String.valueOf(student.getId()));
     }
 
     @Test
-    @DisplayName("WHEN student is saved THEN it properties are correct")
+    @DisplayName("WHEN register is called with a number higher than max students THEN it throws an ex")
     public void register1() throws StudentNotFoundException, CourseNotFoundException {
         //GIVEN
         var student = providesStudent();

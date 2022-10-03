@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b6830e-061d-4f00-b149-73bd25ed9e17" name="Changes" comment="Add some tests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/utils/RegisterWIthIdDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/controllers/CoursesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/controllers/CoursesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/controllers/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/controllers/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/models/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/services/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/utils/Endpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/metadata/schoolsystem/utils/Endpoints.java" afterDir="false" />
+    <list default="true" id="32b6830e-061d-4f00-b149-73bd25ed9e17" name="Changes" comment="Get 80% coverage">
       <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/AbstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/AbstractTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/controllers/RegisterControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/controllers/RegisterControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/controllers/StudentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/controllers/StudentControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/providers/CourseProviders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/providers/CourseProviders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/repositories/CourseRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/repositories/CourseRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/repositories/StudentRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/repositories/StudentRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/CourseServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/CourseServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/RegistrationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/RegistrationServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/StudentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/metadata/schoolsystem/services/StudentServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -294,7 +286,7 @@
       <workItem from="1664412138139" duration="1265000" />
       <workItem from="1664580091061" duration="1449000" />
       <workItem from="1664646688353" duration="5036000" />
-      <workItem from="1664751104235" duration="5422000" />
+      <workItem from="1664751104235" duration="5853000" />
     </task>
     <task id="LOCAL-00001" summary="Spring setup">
       <created>1664296490285</created>
@@ -338,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664667450336</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Get 80% coverage">
+      <created>1664756561273</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664756561273</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +374,8 @@
     <MESSAGE value="Setup postgres" />
     <MESSAGE value="Set up Courses CRUD" />
     <MESSAGE value="Add some tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add some tests" />
+    <MESSAGE value="Get 80% coverage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get 80% coverage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,10 +1,8 @@
 package io.metadata.schoolsystem.repositories;
 
 import io.metadata.schoolsystem.models.Course;
-import io.metadata.schoolsystem.repositories.StudentRepository;
 import io.metadata.schoolsystem.models.Student;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,20 +18,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class StudentRepositoryTest {
 
+    private final Course javaCourse = new Course("Java");
     @Autowired
     private StudentRepository repository;
-    private final String name = "John";
-    private final String surname = "Smith";
-    private final Course javaCourse = new Course("Java");
 
     @AfterEach
     void afterAll() {
         repository.deleteAll();
-    }
-
-    @BeforeEach
-    void setUp() {
-
     }
 
     @Test
@@ -41,6 +32,8 @@ public class StudentRepositoryTest {
     public void save() {
         //given
         var courses = List.of(javaCourse);
+        String name = "John";
+        String surname = "Smith";
         var student = Student.builder().
                 name(name).
                 surname(surname).
@@ -78,7 +71,7 @@ public class StudentRepositoryTest {
     }
 
     @Test
-    @DisplayName("WHEN student is deleted THEN is present")
+    @DisplayName("WHEN findById is called THEN it finds the right student")
     public void findById() {
         //GIVEN
         var student = providesStudent();

@@ -31,22 +31,22 @@ class StudentServiceTest {
     private StudentService studentService;
 
     @Test
-    @DisplayName("WHEN student is saved THEN it properties are correct")
+    @DisplayName("WHEN student not in db THEN it throws an exception")
     public void findByIdOrThrows() {
         //GIVEN
         var opt = Optional.ofNullable(providesNullStudent());
         var id = 4L;
         given(repository.findById(id)).willReturn(opt);
         //WHEN
-        var e = assertThrows(StudentNotFoundException.class, () -> {
-            studentService.findByIdOrThrow(id);
-        });
+        var e = assertThrows(StudentNotFoundException.class, () ->
+            studentService.findByIdOrThrow(id)
+        );
         //THEN
         assertThat(e.getMessage()).contains(String.valueOf(id));
     }
 
     @Test
-    @DisplayName("WHEN student is saved THEN it properties are correct")
+    @DisplayName("WHEN deleteById is called THEN it calls repository method")
     public void deleteById() {
         //GIVEN
         var id = 4L;
@@ -69,7 +69,7 @@ class StudentServiceTest {
     }
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service findEmptyCourses is called repository method is called")
     public void findEmptyCourses() {
         //GIVEN
         given(repository.findStudentsWithoutCourses()).willReturn(null);
@@ -81,7 +81,7 @@ class StudentServiceTest {
 
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service findAllByStudentId is called repository method is called")
     public void findAllByStudentId() {
         //GIVEN
         var id = 4L;
@@ -93,10 +93,9 @@ class StudentServiceTest {
     }
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service save is called repository method is called")
     public void save() {
         //GIVEN
-        var id = 4L;
         given(repository.save(any())).willReturn(null);
         //WHEN
         studentService.save(any());
@@ -105,7 +104,7 @@ class StudentServiceTest {
     }
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service findById is called repository method is called")
     public void findById() {
         //GIVEN
         var id = 4L;
@@ -117,7 +116,7 @@ class StudentServiceTest {
     }
 
     @Test
-    @DisplayName("WHEN service findAll is called repository method is called")
+    @DisplayName("WHEN service update is called repository method is called")
     public void update() {
         //GIVEN
         var id = 4L;
