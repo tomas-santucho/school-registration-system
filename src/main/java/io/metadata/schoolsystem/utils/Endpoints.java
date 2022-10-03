@@ -9,7 +9,7 @@ public class Endpoints {
     public final static String STUDENTS_WITHOUT_COURSES = "/studentsWithoutCourses";
     public final static String REGISTER = "/register";
     public final static String AND = "&";
-    public final static String REGISTER_WITH_ID = "/registerWithId"+ID+AND+ID;
+    public final static String REGISTER_WITH_ID = "/registerWithId";
     public final static String UPDATE = "/update" + ID;
     public final static String DELETE = "/delete" + ID;
     private final static String API = "/api";

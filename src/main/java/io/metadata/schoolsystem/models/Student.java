@@ -23,7 +23,6 @@ public class Student {
     Long id;
     String name;
     String surname;
-    String bornDate;
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "student_courses",
@@ -52,7 +51,7 @@ public class Student {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
                 "name = " + name + ", " +
-                "surname = " + surname + ", " +
-                "bornDate = " + bornDate + ")";
+                "surname = " + surname + ")";
+
     }
 }

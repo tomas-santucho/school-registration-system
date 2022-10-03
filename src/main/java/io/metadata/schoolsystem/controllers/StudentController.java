@@ -79,19 +79,7 @@ public class StudentController {
 
     @PutMapping(UPDATE)
     ResponseEntity<?> updateStudent(@RequestBody Student newStudent, @PathVariable Long id) {
-        var updatedStudent = service.findById(id)
-                .map(student -> {
-                    student.setName(newStudent.getName());
-                    student.setSurname(newStudent.getSurname());
-                    student.setBornDate(newStudent.getBornDate());
-                    return service.save(student);
-                })
-                .orElseGet(() -> {
-                    newStudent.setId(id);
-                    return service.save(newStudent);
-                });
-        var entityModel = assembler.toModel(updatedStudent);
-
+        var entityModel = assembler.toModel(service.update(newStudent, id));
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);

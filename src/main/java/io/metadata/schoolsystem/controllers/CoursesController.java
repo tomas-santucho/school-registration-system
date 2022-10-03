@@ -41,15 +41,13 @@ public class CoursesController {
     }
 
     @GetMapping(ID)
-    public EntityModel<Course> one(@PathVariable Long id) {
-        //FIX THIS
-        final Course course;
+    public EntityModel<?> one(@PathVariable Long id) {
         try {
-            course = service.findByIdOrThrow(id);
+            var course = service.findByIdOrThrow(id);
+            return assembler.toModel(course);
         } catch (CourseNotFoundException e) {
-            throw new RuntimeException(e);
+            return EntityModel.of(e);
         }
-        return assembler.toModel(course);
     }
 
     @GetMapping(FIND_BY_STUDENT_ID)

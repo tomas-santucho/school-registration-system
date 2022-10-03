@@ -38,8 +38,20 @@ public class StudentService {
     public Set<Student> findAllByCourseId(final long id) {
         return repository.findAllByCourseId(id);
     }
-
     public Set<Student> findStudentsWithoutCourses() {
         return repository.findStudentsWithoutCourses();
+    }
+
+    public Student update(Student s, long id) {
+        return repository.findById(id)
+                .map(student -> {
+                    student.setName(s.getName());
+                    student.setSurname(s.getSurname());
+                    return repository.save(student);
+                })
+                .orElseGet(() -> {
+                    s.setId(id);
+                    return repository.save(s);
+                });
     }
 }

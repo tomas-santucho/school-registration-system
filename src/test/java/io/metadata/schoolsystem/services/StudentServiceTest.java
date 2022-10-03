@@ -1,6 +1,7 @@
 package io.metadata.schoolsystem.services;
 
 import io.metadata.schoolsystem.exceptions.StudentNotFoundException;
+import io.metadata.schoolsystem.models.Student;
 import io.metadata.schoolsystem.repositories.StudentRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static io.metadata.schoolsystem.providers.StudentProviders.providesNullStudent;
+import static io.metadata.schoolsystem.providers.StudentProviders.providesStudent;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -112,6 +114,18 @@ class StudentServiceTest {
         studentService.findById(id);
         //THEN
         verify(repository).findById(id);
+    }
+
+    @Test
+    @DisplayName("WHEN service findAll is called repository method is called")
+    public void update() {
+        //GIVEN
+        var id = 4L;
+        given(repository.save(any(Student.class))).willReturn(null);
+        //WHEN
+        studentService.update(providesStudent(), id);
+        //THEN
+        verify(repository).save(any(Student.class));
     }
 
 

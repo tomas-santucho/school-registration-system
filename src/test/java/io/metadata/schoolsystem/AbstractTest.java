@@ -17,6 +17,9 @@ import java.io.IOException;
 @SpringBootTest(classes = SchoolSystemApplication.class)
 @WebAppConfiguration
 public abstract class AbstractTest {
+
+    protected final ObjectMapper mapper = new ObjectMapper();
+
     protected MockMvc mvc;
     @Autowired
     WebApplicationContext webApplicationContext;

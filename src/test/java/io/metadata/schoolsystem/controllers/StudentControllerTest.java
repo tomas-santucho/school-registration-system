@@ -1,6 +1,5 @@
 package io.metadata.schoolsystem.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.metadata.schoolsystem.AbstractTest;
 import io.metadata.schoolsystem.models.Student;
 import io.metadata.schoolsystem.services.StudentService;
@@ -15,6 +14,7 @@ import static io.metadata.schoolsystem.utils.Endpoints.*;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willDoNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -23,9 +23,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class StudentControllerTest extends AbstractTest {
-
-    final ObjectMapper mapper = new ObjectMapper();
-
     @MockBean
     private StudentService service;
 
@@ -95,6 +92,26 @@ class StudentControllerTest extends AbstractTest {
         //then
         response.andExpect(status().isNoContent())
                 .andDo(print());
+    }
+
+    @Test
+    void update() throws Exception {
+        //given
+        long id = 1L;
+        var savedStudent = providesStudent();
+        var newStudent = providesStudent("Jon", "Snow", savedStudent.getCourses().get(0));
+
+        given(service.update(any(Student.class), anyLong())).willReturn(newStudent);
+
+        //when
+        ResultActions response = mvc.perform(put(STUDENTS + UPDATE, id, savedStudent)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(newStudent)));
+        //then
+        response.andExpect(status().isCreated())
+                .andDo(print())
+                .andExpect(jsonPath("$.name", is(newStudent.getName())))
+                .andExpect(jsonPath("$.surname", is(newStudent.getSurname())));
     }
 
 }
