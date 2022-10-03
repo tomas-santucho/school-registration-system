@@ -1,8 +1,5 @@
 # school-registration-system
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
-[![Cove Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 ## Coverage
 ![coverage](https://i.imgur.com/GwEKO3G.png)
 
