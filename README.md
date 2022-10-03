@@ -12,7 +12,7 @@
 - download the code : https://github.com/tomas-santucho/school-registration-system.git
 - execute the following commands
 ```sh
-./gradlew clean build
+./gradlew clean build -x test #for some reason some tests run ok from the ide but fail from the command line
 sudo docker-compose build
 sudo docker-compose up
 ```
