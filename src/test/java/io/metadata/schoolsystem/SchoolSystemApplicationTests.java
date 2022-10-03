@@ -1,8 +1,8 @@
 package io.metadata.schoolsystem;
 
-import io.metadata.schoolsystem.courses.controllers.CoursesController;
-import io.metadata.schoolsystem.registration.controllers.RegistrationController;
-import io.metadata.schoolsystem.students.controllers.StudentController;
+import io.metadata.schoolsystem.controllers.CoursesController;
+import io.metadata.schoolsystem.controllers.RegistrationController;
+import io.metadata.schoolsystem.controllers.StudentController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

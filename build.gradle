@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.4'
 	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
+	id 'jacoco'
 }
 
 group = 'io.metadata'
@@ -20,16 +21,27 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation "org.springframework.boot:spring-boot-starter-hateoas"
 	implementation "org.postgresql:postgresql"
 	testImplementation 'junit:junit:4.13.2'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	//testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.withType(Test) {
+	finalizedBy jacocoTestReport
+}
+
+project.jacocoTestReport {
+	getExecutionData().setFrom(fileTree(buildDir).include("/jacoco/*.exec"))
+
+	reports {
+		html.enabled true
+		csv.enabled true
+	}
 }
